@@ -20,7 +20,7 @@ const HomeScreen = () => {
         <View className="flex-row px-6 mt-8 items-center space-x-1">
                 <Text className="text-[#67C6E3] text-5xl font-bold">News</Text>
             <View>
-                <Text className="text-black text-4xl font-bold">Nexus</Text>
+                <Text className="text-[#3C5B6F] text-4xl font-bold">Nexus</Text>
             </View>
         </View>
 
