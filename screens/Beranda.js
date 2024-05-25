@@ -1,8 +1,8 @@
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, ActivityIndicator, Image } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import MenuContainer from '../components/MenuContainer';
-import { beach, mountain, museum } from '../assets';
+import { beach, mountain, museum, notfound } from '../assets';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import ItemCardContainer from '../components/ItemCardContainer';
 
@@ -12,6 +12,7 @@ const Beranda = () => {
   const navigation = useNavigation();
   const [type, setType] = useState('');
   const [isLoading, setisLoading] = useState(false);
+  const [mainData, setMainData] = useState([]);
 
 
         useLayoutEffect(() => {

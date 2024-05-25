@@ -4,4 +4,4 @@ export { default as beach } from "./beach.png";
 export { default as mountain } from "./mountain.png";
 export { default as travel } from "./travel.png";
 export { default as edu } from "./edu.png";
-export { default as notfound } from "./notfound.png";
+export { default as notfound } from "./notfound.jpeg";
