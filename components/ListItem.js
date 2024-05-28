@@ -7,6 +7,7 @@ const ListItem = ({ imageSrc, title, location, description }) => {
   const navigation = useNavigation();
   return (
           <TouchableOpacity 
+          // navigation ke deskripsi
         onPress={() => navigation.navigate("Item", { name: title, photo: imageSrc, description: description })}
         className="rounded-md border border-gray-300 ml-1 px-3 py-2 shadow-md bg-white w-[175px] my-2"
       >
@@ -15,7 +16,7 @@ const ListItem = ({ imageSrc, title, location, description }) => {
         className="w-full h-[150px] rounded-md object-cover"
       />
 
-      {title ? (
+      {title ? ( 
         <>
       <Text className="text-[#3C5B6F] text-[18px] font-bold">{title}
       </Text>
@@ -29,7 +30,7 @@ const ListItem = ({ imageSrc, title, location, description }) => {
       ) : (
         <></>
       )}
-    </TouchableOpacity>
+    </TouchableOpacity> 
   );
 };
 
