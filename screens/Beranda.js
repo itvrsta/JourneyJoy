@@ -3,7 +3,6 @@ import { View, Text, SafeAreaView, ScrollView, ActivityIndicator, TextInput } fr
 import { useNavigation } from '@react-navigation/native';
 import ListItem from '../components/ListItem';
 import { fetchData } from '../api/api';
-import CategoryItems from '../components/CategoryItems'; // Import CategoryItems component
 
 const Beranda = () => {
   const navigation = useNavigation();
