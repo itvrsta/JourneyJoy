@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { FontAwesome, Fontisto } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-const ItemCardContainer = ({ imageSrc, title, location, description }) => {
+const ListItem = ({ imageSrc, title, location, description }) => {
   const navigation = useNavigation();
   return (
           <TouchableOpacity 
-        onPress={() => navigation.navigate("ItemScreen", { name: title, photo: imageSrc, description: description })}
-        className="rounded-md border border-gray-300 space-y-2 px-3 py-2 shadow-md bg-white w-[175px] my-2"
+        onPress={() => navigation.navigate("Item", { name: title, photo: imageSrc, description: description })}
+        className="rounded-md border border-gray-300 ml-1 px-3 py-2 shadow-md bg-white w-[175px] my-2"
       >
       <Image
         source={{ uri: imageSrc }}  
@@ -33,4 +33,4 @@ const ItemCardContainer = ({ imageSrc, title, location, description }) => {
   );
 };
 
-export default ItemCardContainer;
+export default ListItem;

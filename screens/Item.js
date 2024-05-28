@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const ItemScreen = () => {
+const Item = () => {
   const route = useRoute();
   const { name, photo, description } = route.params;
   const navigation = useNavigation();
@@ -56,4 +56,4 @@ const ItemScreen = () => {
 };
 
 
-export default ItemScreen;
+export default Item

@@ -2,9 +2,9 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { reporter, traveling } from '../assets';
+import { traveling } from '../assets';
 
-const HomeScreen = () => {
+const Home = () => {
 
         const navigation = useNavigation();
 
@@ -43,17 +43,16 @@ const HomeScreen = () => {
             </View>
             </TouchableOpacity>
 
-        {/*Reporter Section */}
+        {/*Pesawat Section */}
         <View className="flex-1 relative items-center justify-center">
         <Image
         source={traveling}
         className="w-full obfullject-cover"
         />
 
-        
         </View>
     </SafeAreaView>
   );
 };
 
-export default HomeScreen
+export default Home
