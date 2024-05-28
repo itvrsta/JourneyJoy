@@ -5,8 +5,6 @@ const fetchData = async () => {
       throw new Error('Error fetching places data');
     }
     const placesData = await placesResponse.json();
-
-    // Ambil kategori unik dari data tempat
     const categories = Array.from(new Set(placesData.data.map(place => place.category)));
 
     return { places: placesData.data, categories: categories };

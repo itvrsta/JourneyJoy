@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, SafeAreaView, ScrollView, ActivityIndicator, TextInput } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, ActivityIndicator, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ListItem from '../components/ListItem';
 import { fetchData } from '../api/api';
+import { notfound } from '../assets';
 
 const Beranda = () => {
   const navigation = useNavigation();
@@ -10,7 +11,7 @@ const Beranda = () => {
   const [mainData, setMainData] = useState({ places: [], categories: [] });
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null); // State to store the selected category
-  const { places, categories } = mainData;
+  const { categories } = mainData;
 
   useEffect(() => {
     navigation.setOptions({
@@ -26,24 +27,22 @@ const Beranda = () => {
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
-        // Handle error here if needed
       }
     };
 
     fetchAllData();
   }, []);
 
+  // const seacrh
   const handleSearch = (text) => {
     setSearchQuery(text);
   };
 
-  // Filtered places data based on search query and selected category
- // Filtered places data based on search query and selected category
+  // const filter
 const filteredPlacesData = mainData.places.filter(item =>
   item.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
   (!selectedCategory || item.category.name === selectedCategory)
 );
-
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -68,7 +67,7 @@ const filteredPlacesData = mainData.places.filter(item =>
         <Text className="text-[#3C5B6F] text-[18px] font-bold mb-4 px-8">Category</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {categories.map((category, index) => (
-            <View key={index} className="my-2 ml-6 px-4 bg-white border rounded-lg">
+            <View key={index} className="my-2 ml-6 px-6 bg-white border border-gray-300 rounded-lg">
               <Text
                 onPress={() => setSelectedCategory(category.name === selectedCategory ? null : category.name)} // Toggle selected category
                 className={`text-${selectedCategory === category.name ? 'blue' : 'gray'} font-bold mb-2`}
@@ -80,7 +79,7 @@ const filteredPlacesData = mainData.places.filter(item =>
         </ScrollView>
       </View>
 
-      {/* Top List Section */}
+      {/* Top List Item Section */}
       <ScrollView className="mt-4">
         <View className="">
           <Text className="text-[#3C5B6F] text-[18px] font-bold mb-2 px-8">Top List</Text>
@@ -113,7 +112,10 @@ const filteredPlacesData = mainData.places.filter(item =>
             ))}
                {/* Show message if no places found */}
                {filteredPlacesData.length === 0 && (
-              <Text className="text-gray-500 text-center">No places found.</Text>
+                <View className="w-full h-[400px] items-center space-y-8 justify-center">
+                  <Image source={notfound} className="w-32 h-32 object-cover" />
+                  <Text className="text-2xl text-[#3C5B6F] font-semibold">Opps....No Data Found</Text>
+                </View>
             )}
           </View>
         </View>
